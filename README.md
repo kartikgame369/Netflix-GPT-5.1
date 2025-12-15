@@ -3,7 +3,8 @@
 -> Login | Sing-up | 
 -> redirect to Browser 
 -> Browser [ after the authontication]
--> Header
+-> Header 
+-> login form 
 -> main Movie
 ->tailer in background
 -> title & Discription
