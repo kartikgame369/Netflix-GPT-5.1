@@ -1,14 +1,11 @@
 import React from 'react'
 import './App.css'
+import Body from './components/Body.jsx'
 
 function App() {
   
   return (
-    <>
-      <div>
-        <h1 className=' bg-red-500'>hello check every thing okay </h1>
-      </div>
-    </>
+    <Body/>
   )
 }
 
