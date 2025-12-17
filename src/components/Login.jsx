@@ -6,18 +6,21 @@ import {checkvalidData} from '../utils/Validate'
 const Login = () => {
   const [signIn,setSignIn]=React.useState(false);
   const[errorMessage , seterrorMessage]=React.useState();
-  const {name}=React.useRef(null)
-  const {email}=React.useRef(null)
-  const{password}=React.useRef(null)
+  const name=React.useRef(null)
+  const email=React.useRef(null)
+  const password=React.useRef(null)
 
 
-  const handleButtonClick=()=>{
-    // validate the form data 
-   const massage= checkvalidData(email.current?.value,password.current?.value,name.current?.value);
-    seterrorMessage(massage)
-
-
+  const handleButtonClick = () => {
+    const message = checkvalidData(
+      email.current?.value,
+      password.current?.value,
+      signIn ? null : name.current?.value
+    );
+    seterrorMessage(message);
+    
   };
+
 
   const SignInForm=()=>{
     setSignIn(!signIn);

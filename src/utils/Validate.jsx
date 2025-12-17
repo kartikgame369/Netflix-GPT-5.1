@@ -1,18 +1,18 @@
 
 const checkvalidData = (email , password)=>{
     const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const isPasswordValid = password.length >= 8;
-    const isNameValid = true; // Placeholder for name validation if needed in future
+    const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
+    const isNameValid = true; 
     if(!isEmailValid){
-        return { message:"Invalid email format"};
+        return "Invalid email format";
     }
     if(!isPasswordValid){
-        return { message:"Password must be at least 8 characters long"};
+        return "Password must be at least 8 characters long";
     }
     if(!isNameValid){
-        return { message:"Name cannot be empty"};
+        return "Password must be at least 8 characters long";
     }
-
+    return null;
 }
 
 export {checkvalidData};
