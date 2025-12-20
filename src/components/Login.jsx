@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import {checkvalidData} from '../utils/Validate'
+import api from '../api/User.api.jsx'
  
 
 const Login = () => {
@@ -11,15 +12,41 @@ const Login = () => {
   const password=React.useRef(null)
 
 
-  const handleButtonClick = () => {
+  const handleButtonClick = async() => {
     const message = checkvalidData(
       email.current?.value,
       password.current?.value,
       signIn ? null : name.current?.value
     );
     seterrorMessage(message);
-    
-  };
+  if (message) return;
+
+  try {
+    if (signIn) {
+      // 🔐 LOGIN
+      await api.post("/login", {
+        email: email.current.value,
+        password: password.current.value,
+      });
+
+      alert("Login Successful");
+    } else {
+      // 📝 REGISTER
+      await api.post("/register", {
+        username: name.current.value,
+        email: email.current.value,
+        password: password.current.value,
+      });
+
+      alert("Registration Successful");
+      setSignIn(true);
+    }
+  } catch (error) {
+    seterrorMessage(
+      error.response?.data?.message || "Something went wrong"
+    );
+  }
+};
 
 
   const SignInForm=()=>{
