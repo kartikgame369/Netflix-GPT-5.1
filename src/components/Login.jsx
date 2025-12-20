@@ -2,9 +2,10 @@ import React from 'react'
 import Header from './Header'
 import {checkvalidData} from '../utils/Validate'
 import api from '../api/User.api.jsx'
- 
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate();
   const [signIn,setSignIn]=React.useState(false);
   const[errorMessage , seterrorMessage]=React.useState();
   const name=React.useRef(null)
@@ -30,6 +31,7 @@ const Login = () => {
       });
 
       alert("Login Successful");
+      navigate("/browse");
     } else {
       // 📝 REGISTER
       await api.post("/register", {
