@@ -3,8 +3,11 @@ import Header from './Header'
 import {checkvalidData} from '../utils/Validate'
 import api from '../api/User.api.jsx'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../utils/userSlice.jsx'
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [signIn,setSignIn]=React.useState(false);
   const[errorMessage , seterrorMessage]=React.useState();
@@ -31,6 +34,7 @@ const Login = () => {
       });
 
       alert("Login Successful");
+      dispatch(addUser(handleButtonClick));
       navigate("/browse");
     } else {
       // 📝 REGISTER

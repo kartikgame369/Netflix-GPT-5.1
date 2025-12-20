@@ -1,13 +1,17 @@
 import React from "react";
 import api from "../api/User.api";
+import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
+import { removeUser } from "../utils/userSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSignOut = async () => {
     try {
       await api.post("/logout");
       alert("Signed out successfully");
+      dispatch(removeUser(handleSignOut));
       navigate("/");
     } catch{
       console.error("Sign out failed");
