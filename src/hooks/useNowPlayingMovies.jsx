@@ -19,6 +19,7 @@ const useNowPlayingMovies = () => {
         }
 
         const json = await response.json();
+        console.log(json)
         dispatch(addNowPlayingmovies(json.results));
       } catch (error) {
         console.error("Now Playing Movies Error:", error);
