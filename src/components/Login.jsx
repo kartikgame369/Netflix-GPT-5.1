@@ -28,7 +28,7 @@ const Login = () => {
 
   try {
     if (signIn) {
-      // 🔐 LOGIN
+      //LOGIN
       await api.post("/login", {
         email: email.current.value,
         password: password.current.value,
@@ -38,7 +38,7 @@ const Login = () => {
       dispatch(addUser(handleButtonClick));
       navigate("/browse");
     } else {
-      // 📝 REGISTER
+      //REGISTER
       await api.post("/register", {
         username: name.current.value,
         email: email.current.value,

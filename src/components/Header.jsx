@@ -30,7 +30,6 @@ const Header = () => {
         alt="logo"
       />
 
-      {/* User section (RIGHT SIDE) */}
       <div className="flex items-center gap-4">
         <img
           className="w-10 h-10 rounded-full cursor-pointer"
