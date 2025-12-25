@@ -1,45 +1,16 @@
-import { useEffect } from "react";
-import { API_OPTIONS } from "../utils/Constents";
-import { useDispatch, useSelector } from "react-redux";
-import { addTrailerVedio } from "../utils/moviesSlice";
+import {  useSelector } from "react-redux";
+import useMovieTrailer from "../hooks/useMovieTrailer";
 
 const VedioBackground = () => {
-  const trailerVedio = useSelector(
-    (store) => store.movies.trailerVedio
-  );
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const getMoviesVedio = async () => {
-      const data = await fetch(
-        "https://api.themoviedb.org/3/movie/now_playing",
-        API_OPTIONS
-      );
-
-      const json = await data.json();
-
-      const filterData = json.results.filter(
-        (video) => video.type === "Trailer"
-      );
-
-      const trailer =
-        filterData.length ? filterData[0] : json.results[0];
-
-      dispatch(addTrailerVedio(trailer));
-    };
-
-    getMoviesVedio();
-  }, [dispatch]);
-
+  const trailerVideo = useSelector((store)=> store.movies?.tailerVedio);
+  useMovieTrailer()
   return (
     <div>
       <iframe
-        width="560"
-        height="315"
+      className="w-screen aspect-video"
         src={
           "https://www.youtube.com/embed/" +
-          trailerVedio?.key
+          trailerVideo?.key
         }
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
