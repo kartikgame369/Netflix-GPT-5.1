@@ -8,8 +8,6 @@ const VedioBackground = () => {
         title="YouTube video player"
         allow="autoplay; encrypted-media"
       ></iframe>
-
-      {/* Dark Gradient Overlay (FIXED) */}
       <div className="absolute inset-0 bg-linear-to-r from-black via-black/60 to-transparent pointer-events-none"></div>
     </div>
   );
