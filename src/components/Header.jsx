@@ -21,26 +21,32 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute top-0 left-0 w-full px-8 py-2 bg-linear-to-b from-black to-transparent flex items-center justify-between">
-      
-      {/* Logo */}
-      <img
-        className="w-44"
-        src={headerURL}
-        alt="logo"
-      />
+    <div className="fixed top-0 left-0 w-full z-50 px-8 py-2
+                bg-linear-to-b from-black to-transparent
+                flex items-center justify-between">
 
-      <div className="flex items-center gap-4">
-        <img
-          className="w-10 h-10 rounded-full cursor-pointer"
-          src={usericonURL}
-          alt="usericon"
-        />
-        <button className="text-white font-medium hover:underline" onClick={handleSignOut}>
-          Sign Out
-        </button>
-      </div>
-    </div>
+  {/* Logo */}
+  <img
+    className="w-44"
+    src={headerURL}
+    alt="logo"
+  />
+
+  <div className="flex items-center gap-4">
+    <img
+      className="w-10 h-10 rounded-full cursor-pointer"
+      src={usericonURL}
+      alt="usericon"
+    />
+    <button
+      className="text-white font-medium hover:underline"
+      onClick={handleSignOut}
+    >
+      Sign Out
+    </button>
+  </div>
+</div>
+
   );
 };
 
