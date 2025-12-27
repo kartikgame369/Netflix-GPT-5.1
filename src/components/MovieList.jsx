@@ -13,11 +13,14 @@ const MovieList = ({ title, movies }) => {
       {/* Movie Cards */}
       <div className="flex gap-4 overflow-x-scroll scrollbar-hide">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} posterPath={movie.poster_path} />
+          <MovieCard
+            key={movie.id}
+            posterPath={movie.poster_path}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-export default MovieList;
+export default MovieList;               

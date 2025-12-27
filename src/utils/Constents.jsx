@@ -3,10 +3,6 @@ export const usericonURL="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9Gc
 export const backgroundurl='https://assets.nflxext.com/ffe/siteui/vlv3/29b665f6-0a62-4745-b9c2-f617fb7eadc6/web/IN-en-20251208-TRIFECTA-perspective_c78aea89-8f13-4e2c-ba7a-f9b40f53bf8c_medium.jpg'
 
 
-export const API_OPTIONS = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNTQ4NDFkYzE3OWUxZDYzYjcwOWExZmZlODVmMWE4YSIsIm5iZiI6MTc2NjI0OTgxMC45MzEsInN1YiI6IjY5NDZkNTUyZmRhYzhhM2U4YjhjZGU5YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n5zVSxnrVgq7lPyllUg954sO-E53_aHc_s9dbD5s75U'
-  }
-};
+
+
+export const IMG_CDN="https://image.tmdb.org/t/p/original/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg"
