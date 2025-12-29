@@ -10,9 +10,7 @@ const useNowPlayingMovies = () => {
     const getNowPlayingMovies = async () => {
       try {
         const response = await fetch(
-          "https://api.themoviedb.org/3/movie/now_playing",
-          API_OPTIONS
-        );
+          "http://localhost:8000/api/v1/movies/now-playing");
 
         if (!response.ok) {
           throw new Error("Failed to fetch now playing movies");
