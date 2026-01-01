@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addNowPlayingmovies } from "../utils/moviesSlice";
-import { API_OPTIONS } from "../utils/Constents"; 
 
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
@@ -10,16 +9,23 @@ const useNowPlayingMovies = () => {
     const getNowPlayingMovies = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8000/api/v1/movies/now-playing");
+          "/api/v1/movies/now-playing", // ✅ proxy will forward this
+          {
+            method: "GET",
+            credentials: "include", // if cookies/auth used
+          }
+        );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch now playing movies");
+          throw new Error(`HTTP error ${response.status}`);
         }
 
         const json = await response.json();
-        dispatch(addNowPlayingmovies(json.results));
+
+        // Adjust according to backend response
+        dispatch(addNowPlayingmovies(json.data || json.results));
       } catch (error) {
-        console.error("Now Playing Movies Error:", error);
+        console.error("Now Playing Movies Error:", error.message);
       }
     };
 

@@ -1,5 +1,4 @@
 import Header from './Header'
-import { API_OPTIONS } from '../utils/Constents'
 import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
 import MainContainer from './MainContainer'
 import SecondaryContainer from './SecondaryContainer'
