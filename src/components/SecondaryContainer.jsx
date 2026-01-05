@@ -1,14 +1,18 @@
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
 
+const SecondaryContainer = () => {
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies?.nowPlayingMovies
+  );
 
-const SecondaryContainer=()=>{
-    const movies = useSelector((store) => store.movies);
-    return(
-        <div>
-            <MovieList title={"now playing"} movies={movies.nowPlayingMovies}/>
-        </div>
-    )
-}
+  if (!nowPlayingMovies || nowPlayingMovies.length === 0) return null;
+
+  return (
+    <div className="relative bg-black pt-8">
+      <MovieList title="Now Playing" movies={nowPlayingMovies} />
+    </div>
+  );
+};
 
 export default SecondaryContainer;
