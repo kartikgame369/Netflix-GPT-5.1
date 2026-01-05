@@ -10,13 +10,12 @@ const MainContainer = () => {
   const mainMovie = movies[0];
 
   return (
-    <div className="relative">
+    <div className="relative w-screen h-screen">
       <VideoTitle
         title={mainMovie.original_title}
         overview={mainMovie.overview}
-        movieId={mainMovie.id}
       />
-      <VideoBackground movie={mainMovie} />
+      <VideoBackground movieId={mainMovie.id} />
     </div>
   );
 };

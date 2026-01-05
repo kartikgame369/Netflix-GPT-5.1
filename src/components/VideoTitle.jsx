@@ -1,16 +1,35 @@
+const VedioTitle = ({ title, overview }) => {
+  return (
+    <div
+      className="
+        absolute top-0 left-0
+        w-screen h-screen
+        flex flex-col justify-center
+        px-24
+        text-white
+        z-20
+        pointer-events-none
+      "
+    >
+      <h1 className="text-5xl font-extrabold drop-shadow-lg">
+        {title}
+      </h1>
 
+      <p className="py-6 text-lg max-w-xl leading-relaxed drop-shadow-md">
+        {overview}
+      </p>
 
-const VedioTitle= ({title,overview})=>{
-return(
-  <div className=" w-screen aspect-video pt-[100%] px-24 absolute text-white ">
-      <h1 className="text-3xl font-bold">{title}</h1>
-      <p className="py-6 text-lg w-1/4">{overview}</p>
-      <div className="">
-        <button className="bg-white text-black p-4 px-12 text-lg rounded-lg hover:bg-red-500">▶️Play</button>
-        <button className="bg-gray-500 text-white p-4 px-12 text-lg bg-opacity-50 rounded-lg">ℹ️More Info</button>
+      <div className="flex gap-4 pointer-events-auto">
+        <button className="bg-white text-black px-10 py-3 text-lg rounded-md hover:bg-red-500 hover:text-white transition">
+          ▶️ Play
+        </button>
+
+        <button className="bg-gray-600 text-white bg-opacity-60 px-10 py-3 text-lg rounded-md hover:bg-opacity-80 transition">
+          ℹ️ More Info
+        </button>
       </div>
-  </div>
-)
-}
+    </div>
+  );
+};
 
 export default VedioTitle;

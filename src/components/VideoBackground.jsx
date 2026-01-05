@@ -1,16 +1,36 @@
-const VedioBackground = () => {
+import { useSelector } from "react-redux";
+import useMovieTrailer from "../hooks/useMovieTrailer";
+
+const VideoBackground = ({ movieId }) => {
+  const trailerVideo = useSelector(
+    (store) => store.movies?.trailerVedio
+  );
+
+  useMovieTrailer(movieId);
+
+  if (!trailerVideo?.key) return null;
+
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen -z-10 overflow-hidden">
-      {/* Video */}
-      <iframe
-        className="absolute top-1/2 left-1/2 w-[120%] h-[120%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-        src="https://www.youtube.com/embed/sEgPQ7HKoBA?autoplay=1&mute=1&controls=0&loop=1&playlist=sEgPQ7HKoBA&modestbranding=1&rel=0"
-        title="YouTube video player"
-        allow="autoplay; encrypted-media"
-      ></iframe>
-      <div className="absolute inset-0 bg-linear-to-r from-black via-black/60 to-transparent pointer-events-none"></div>
-    </div>
+   <div className="fixed inset-0 w-screen h-screen overflow-hidden ">
+  <iframe
+    className="
+      absolute top-1/2 left-1/2
+      min-w-full min-h-full
+      w-auto h-auto
+      -translate-x-1/2 -translate-y-1/2
+      scale-125
+      object-cover
+      pointer-events-none
+    "
+    src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&controls=0`}
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerPolicy="strict-origin-when-cross-origin"
+    allowFullScreen
+  />
+</div>
+
   );
 };
 
-export default VedioBackground;
+export default VideoBackground;
