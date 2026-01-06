@@ -11,24 +11,25 @@ const VideoBackground = ({ movieId }) => {
   if (!trailerVideo?.key) return null;
 
   return (
-   <div className="fixed inset-0 w-screen h-screen overflow-hidden ">
+   <div className="relative w-screen h-[85vh] z-0 overflow-hidden">
   <iframe
     className="
       absolute top-1/2 left-1/2
+      w-[120vw] h-[120vh]
       min-w-full min-h-full
-      w-auto h-auto
       -translate-x-1/2 -translate-y-1/2
-      scale-125
+      scale-110
       object-cover
       pointer-events-none
     "
     src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&controls=0`}
     title="YouTube video player"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     referrerPolicy="strict-origin-when-cross-origin"
-    allowFullScreen
   />
 </div>
+
+
 
   );
 };
