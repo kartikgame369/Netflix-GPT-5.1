@@ -1,3 +1,4 @@
+
 import { useSelector } from "react-redux"
 import MovieCard from "./MovieCard";
 
@@ -7,9 +8,9 @@ const SecondaryContainer=()=>{
   return(
     <div>
       <MovieCard title={"now playing"} movies={movies.nowplayingMovies}/>
-      <MovieCard title={"popular"} movies={movies.popularMovies}/>
-      <MovieCard title={"top rated"} movies={movies.topRatedMovies}/>
-      <MovieCard title={"upcoming"} movies={movies.upcomingMovies}/>
+      <MovieCard title={"popular"} movies={movies.nowplayingMovies}/>
+      <MovieCard title={"top rated"} movies={movies.nowplayingMovies}/>
+      <MovieCard title={"upcoming"} movies={movies.nowplayingMovies}/>
     </div>
   )
 }
