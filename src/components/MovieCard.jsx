@@ -1,12 +1,17 @@
-import { IMG_CDN } from "../utils/Constents";
+const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
+const MovieCard = ({ posterPath }) => {
+  if (!posterPath) return null;
 
-const MovieCard =({posterpath})=>{
-  return(
-    <div className="w-48 pr ">
-      <img alt="movie card" src={IMG_CDN + posterpath}></img>
+  return (
+    <div className="w-36 md:w-44 ">
+      <img
+        src={IMG_CDN_URL + posterPath}
+        alt="Movie Poster"
+        className="w-full rounded-md hover:scale-105 transition-transform duration-300"
+      />
     </div>
-  )
-}
+  );
+};
 
 export default MovieCard;

@@ -5,4 +5,4 @@ export const backgroundurl='https://assets.nflxext.com/ffe/siteui/vlv3/29b665f6-
 
 
 
-export const IMG_CDN="https://image.tmdb.org/t/p/original/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg" 
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500"
